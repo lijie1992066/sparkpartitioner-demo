@@ -39,7 +39,9 @@ object xy {
     //    println(rdd4.collect().toBuffer)
 
     //    val rdd5 = rdd3.partitionBy(new HostPartitioner(rdd4.collect())).sortBy(_._2._2, false).saveAsTextFile("C:\\Users\\Administrator\\Desktop\\out01")
-    val rdd5 = rdd3.partitionBy(new HostPartitioner(rdd4.collect())).mapPartitions(x=>{x.take(3)}).saveAsTextFile("C:\\Users\\Administrator\\Desktop\\out01")
+    val rdd5 = rdd3.partitionBy(new HostPartitioner(rdd4.collect())).mapPartitions(x => {
+      x.take(3)
+    }).saveAsTextFile("C:\\Users\\Administrator\\Desktop\\out01")
     //test66666
     sc.stop()
   }
